@@ -1,0 +1,49 @@
+services:
+
+  mongo:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_DB_DATABASE_NAME:?}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_ADMIN_USERNAME:?}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_ADMIN_PASSWORD:?}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    env_file:
+      - .env
+    networks:
+      - mongo_network
+      - microservice_network
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_DB_ADMIN_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_DB_ADMIN_PASSWORD}
+      ME_CONFIG_MONGODB_URL: ${MONGO_DB_URL}
+      ME_CONFIG_BASICAUTH: "false"
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    networks:
+      - mongo_network
+
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  mongo_network:
+    driver: bridge
+  microservice_network:
+    external: true
