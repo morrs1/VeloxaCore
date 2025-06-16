@@ -1,4 +1,4 @@
-package com.morrs.spi;
+package com.morrs.spi.output_ports;
 
 import com.morrs.domain.entities.User;
 

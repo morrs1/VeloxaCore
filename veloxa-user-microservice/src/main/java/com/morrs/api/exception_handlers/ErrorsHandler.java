@@ -1,4 +1,4 @@
-package com.morrs.api.adapters.exception_handlers;
+package com.morrs.api.exception_handlers;
 
 import com.morrs.api.presentation.ErrorResponse;
 import com.morrs.domain.exceptions.BaseException;
