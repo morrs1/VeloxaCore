@@ -2,7 +2,7 @@ package com.morrs.spi.adapters.postgres_jdbc;
 
 import com.morrs.domain.entities.User;
 import com.morrs.domain.values.user.*;
-import com.morrs.spi.FindUserByIdSpi;
+import com.morrs.spi.output_ports.FindUserByIdSpi;
 import com.morrs.spi.exceptions.UserNotFoundException;
 import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;

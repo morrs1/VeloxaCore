@@ -1,8 +1,8 @@
 package com.morrs.usecase;
 
-import com.morrs.api.FindUserByIdApi;
+import com.morrs.api.input_ports.FindUserByIdApi;
 import com.morrs.domain.entities.User;
-import com.morrs.spi.FindUserByIdSpi;
+import com.morrs.spi.output_ports.FindUserByIdSpi;
 
 import java.util.UUID;
 
