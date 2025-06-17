@@ -2,8 +2,10 @@ package com.morrs;
 
 import com.morrs.spi.adapters.postgres_jdbc.CreateUserJdbcTemplateAdapter;
 import com.morrs.spi.adapters.postgres_jdbc.FindUserByIdJdbcTemplateAdapter;
+import com.morrs.spi.adapters.postgres_jdbc.UpdateUserInfoJdbcTemplateAdapter;
 import com.morrs.usecase.CreateUserUseCase;
 import com.morrs.usecase.FindUserByIdUseCase;
+import com.morrs.usecase.UpdateUserUseCase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -25,5 +27,10 @@ public class VeloxaUserMicroserviceApplication {
     @Bean
     public CreateUserUseCase createUserUseCase(JdbcTemplate jdbcTemplate) {
         return new CreateUserUseCase(new CreateUserJdbcTemplateAdapter(jdbcTemplate));
+    }
+
+    @Bean
+    public UpdateUserUseCase updateUserUseCase(JdbcTemplate jdbcTemplate) {
+        return new UpdateUserUseCase(new UpdateUserInfoJdbcTemplateAdapter(jdbcTemplate));
     }
 }
