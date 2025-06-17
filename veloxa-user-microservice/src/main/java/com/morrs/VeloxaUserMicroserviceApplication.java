@@ -1,6 +1,8 @@
 package com.morrs;
 
+import com.morrs.spi.adapters.postgres_jdbc.CreateUserJdbcTemplateAdapter;
 import com.morrs.spi.adapters.postgres_jdbc.FindUserByIdJdbcTemplateAdapter;
+import com.morrs.usecase.CreateUserUseCase;
 import com.morrs.usecase.FindUserByIdUseCase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,5 +20,10 @@ public class VeloxaUserMicroserviceApplication {
     @Bean
     public FindUserByIdUseCase findUserByIdUseCase(JdbcTemplate jdbcTemplate) {
         return new FindUserByIdUseCase(new FindUserByIdJdbcTemplateAdapter(jdbcTemplate));
+    }
+
+    @Bean
+    public CreateUserUseCase createUserUseCase(JdbcTemplate jdbcTemplate) {
+        return new CreateUserUseCase(new CreateUserJdbcTemplateAdapter(jdbcTemplate));
     }
 }
