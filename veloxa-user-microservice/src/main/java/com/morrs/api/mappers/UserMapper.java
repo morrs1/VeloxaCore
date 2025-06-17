@@ -1,7 +1,7 @@
 package com.morrs.api.mappers;
 
 import com.morrs.api.presentation.UserPresentation;
-import com.morrs.api.presentation.UserRequest;
+import com.morrs.api.presentation.UserCreateRequest;
 import com.morrs.domain.entities.User;
 import com.morrs.domain.values.user.*;
 import org.mapstruct.Mapper;
@@ -20,19 +20,19 @@ public abstract class UserMapper {
     @Mapping(target = "profilePhotoLink", expression = "java(user.getProfilePhotoLink().getValue())")
     public abstract UserPresentation toUserPresentation(User user);
 
-    public User toUserFromUserRequest(UserRequest userRequest) {
+    public User toUserFromUserRequest(UserCreateRequest userCreateRequest) {
         return new User(
                 null,
-                new Surname(userRequest.surname()),
-                new Name(userRequest.name()),
-                new Patronymic(userRequest.patronymic()),
-                new UserStatus(userRequest.userStatus()),
-                new NotificationWay(NotificationWayEnum.valueOf(userRequest.notificationWay())),
-                new Role(userRequest.role()),
-                new Email(userRequest.email()),
-                new Password(userRequest.password()),
-                new TelegramId(userRequest.telegramId()),
-                new ProfilePhotoLink(userRequest.profilePhotoLink())
+                new Surname(userCreateRequest.surname()),
+                new Name(userCreateRequest.name()),
+                new Patronymic(userCreateRequest.patronymic()),
+                new UserStatus(userCreateRequest.userStatus()),
+                new NotificationWay(NotificationWayEnum.valueOf(userCreateRequest.notificationWay())),
+                new Role(userCreateRequest.role()),
+                new Email(userCreateRequest.email()),
+                new Password(userCreateRequest.password()),
+                new TelegramId(userCreateRequest.telegramId()),
+                new ProfilePhotoLink(userCreateRequest.profilePhotoLink())
         );
     }
 }

@@ -1,6 +1,6 @@
 package com.morrs.api.presentation;
 
-public record UserRequest(
+public record UserCreateRequest(
         String surname,
         String name,
         String patronymic,
