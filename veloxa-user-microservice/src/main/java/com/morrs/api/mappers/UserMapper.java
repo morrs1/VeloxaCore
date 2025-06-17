@@ -13,6 +13,7 @@ public abstract class UserMapper {
     @Mapping(target = "userStatus", expression = "java(user.getUserStatus().getValue())")
     @Mapping(target = "notificationWay", expression = "java(user.getNotificationWay().getValue().toString())")
     @Mapping(target = "role", expression = "java(user.getRole().getValue())")
+    @Mapping(target = "email", expression = "java(user.getEmail().getValue())")
     @Mapping(target = "telegramId", expression = "java(user.getTelegramId().getValue())")
     @Mapping(target = "profilePhotoLink", expression = "java(user.getProfilePhotoLink().getValue())")
     public abstract UserPresentation toUserPresentation(User user);

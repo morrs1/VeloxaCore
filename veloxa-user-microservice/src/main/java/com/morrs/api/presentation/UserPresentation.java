@@ -10,6 +10,7 @@ public record UserPresentation(
         String userStatus,
         String notificationWay,
         String role,
+        String email,
         Integer telegramId,
         String profilePhotoLink
 ) {
