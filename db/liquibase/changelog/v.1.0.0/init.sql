@@ -22,7 +22,7 @@ CREATE TABLE users
 CREATE TABLE meetings
 (
     id           UUID PRIMARY KEY,
-    organizer_id UUID REFERENCES users (id),
+    organizer_id UUID REFERENCES users (id) ON DELETE SET NULL,
     title        VARCHAR(255),
     description  VARCHAR(255),
     start_time   TIMESTAMP,
@@ -38,8 +38,8 @@ CREATE TABLE tasks
     description    VARCHAR,
     start_time     TIMESTAMP,
     end_time       TIMESTAMP CHECK (end_time > start_time),
-    creator_id     UUID REFERENCES users (id),
-    assignee_id    UUID REFERENCES users (id),
+    creator_id     UUID REFERENCES users (id) ON DELETE SET NULL,
+    assignee_id    UUID REFERENCES users (id) ON DELETE SET NULL,
     status         VARCHAR(255) CHECK (status IN ('CREATED', 'IN_PROCESS', 'COMPLETED', 'FAILED')),
     time_completed TIMESTAMP CHECK ( time_completed > start_time ),
     mark           INT CHECK ( mark >= 0 AND mark <= 10 )
@@ -50,8 +50,8 @@ CREATE TABLE tasks
 
 CREATE TABLE meetings_users
 (
-    meetings_id UUID REFERENCES users (id),
-    users_id    UUID REFERENCES users (id),
+    meetings_id UUID REFERENCES users (id) ON DELETE CASCADE,
+    users_id    UUID REFERENCES users (id) ON DELETE CASCADE,
     PRIMARY KEY (meetings_id, users_id)
 )
 
