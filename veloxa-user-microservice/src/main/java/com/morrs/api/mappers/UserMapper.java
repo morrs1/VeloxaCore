@@ -2,6 +2,7 @@ package com.morrs.api.mappers;
 
 import com.morrs.api.presentation.UserPresentation;
 import com.morrs.api.presentation.UserCreateRequest;
+import com.morrs.api.presentation.UserUpdateInfoRequest;
 import com.morrs.domain.entities.User;
 import com.morrs.domain.values.user.*;
 import org.mapstruct.Mapper;
@@ -33,6 +34,22 @@ public abstract class UserMapper {
                 new Password(userCreateRequest.password()),
                 new TelegramId(userCreateRequest.telegramId()),
                 new ProfilePhotoLink(userCreateRequest.profilePhotoLink())
+        );
+    }
+
+    public User toUserFromUserUpdateInfoRequest(UserUpdateInfoRequest userUpdateInfoRequest) {
+        return new User(
+                userUpdateInfoRequest.id(),
+                new Surname(userUpdateInfoRequest.surname()),
+                new Name(userUpdateInfoRequest.name()),
+                new Patronymic(userUpdateInfoRequest.patronymic()),
+                new UserStatus(userUpdateInfoRequest.userStatus()),
+                new NotificationWay(NotificationWayEnum.valueOf(userUpdateInfoRequest.notificationWay())),
+                new Role(userUpdateInfoRequest.role()),
+                new Email(userUpdateInfoRequest.email()),
+                null,
+                new TelegramId(userUpdateInfoRequest.telegramId()),
+                new ProfilePhotoLink(userUpdateInfoRequest.profilePhotoLink())
         );
     }
 }
