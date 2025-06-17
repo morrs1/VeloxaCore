@@ -1,7 +1,5 @@
 package com.morrs.api.presentation;
 
-import java.util.UUID;
-
 public record UserRequest(
         String surname,
         String name,
