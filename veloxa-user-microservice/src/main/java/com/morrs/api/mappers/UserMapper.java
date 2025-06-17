@@ -22,7 +22,7 @@ public abstract class UserMapper {
 
     public User toUserFromUserRequest(UserRequest userRequest) {
         return new User(
-                userRequest.id(),
+                null,
                 new Surname(userRequest.surname()),
                 new Name(userRequest.name()),
                 new Patronymic(userRequest.patronymic()),

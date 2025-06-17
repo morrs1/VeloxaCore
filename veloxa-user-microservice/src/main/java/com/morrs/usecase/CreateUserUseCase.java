@@ -4,6 +4,8 @@ import com.morrs.api.input_ports.CreateUserApi;
 import com.morrs.domain.entities.User;
 import com.morrs.spi.output_ports.CreateUserSpi;
 
+import java.util.UUID;
+
 public class CreateUserUseCase implements CreateUserApi {
 
     private final CreateUserSpi createUserSpi;
@@ -14,6 +16,7 @@ public class CreateUserUseCase implements CreateUserApi {
 
     @Override
     public User createUser(User user) {
+        user.setId(UUID.randomUUID());
         return createUserSpi.createUser(user);
     }
 
