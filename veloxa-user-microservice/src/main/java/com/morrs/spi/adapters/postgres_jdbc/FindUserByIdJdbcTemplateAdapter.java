@@ -6,6 +6,7 @@ import com.morrs.spi.output_ports.FindUserByIdSpi;
 import com.morrs.spi.exceptions.UserNotFoundException;
 import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -43,7 +44,7 @@ public class FindUserByIdJdbcTemplateAdapter implements FindUserByIdSpi {
                     ),
                     id
             );
-        } catch (DataAccessException e) {
+        } catch (EmptyResultDataAccessException e) {
             throw new UserNotFoundException("Could not find user by id: " + id);
         }
         return Optional.ofNullable(user);
