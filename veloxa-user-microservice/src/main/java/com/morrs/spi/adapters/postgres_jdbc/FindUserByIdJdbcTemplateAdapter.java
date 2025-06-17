@@ -9,12 +9,14 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
 
 @Component()
 @Scope("request")
+@Transactional(readOnly = true)
 public class FindUserByIdJdbcTemplateAdapter implements FindUserByIdSpi {
 
     private final JdbcTemplate jdbcTemplate;

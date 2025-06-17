@@ -3,13 +3,17 @@ package com.morrs.spi.adapters.postgres_jdbc;
 import com.morrs.domain.entities.User;
 import com.morrs.spi.exceptions.UserNotFoundException;
 import com.morrs.spi.output_ports.UpdateUserInfoSpi;
+import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Component
+@Scope("request")
+@Transactional
 public class UpdateUserInfoJdbcTemplateAdapter implements UpdateUserInfoSpi {
 
     private final JdbcTemplate jdbcTemplate;

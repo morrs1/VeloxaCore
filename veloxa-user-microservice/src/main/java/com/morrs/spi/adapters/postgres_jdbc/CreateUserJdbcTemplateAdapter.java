@@ -2,10 +2,14 @@ package com.morrs.spi.adapters.postgres_jdbc;
 
 import com.morrs.domain.entities.User;
 import com.morrs.spi.output_ports.CreateUserSpi;
+import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Scope("request")
+@Transactional
 public class CreateUserJdbcTemplateAdapter implements CreateUserSpi {
 
     private final JdbcTemplate jdbcTemplate;
