@@ -1,13 +1,7 @@
 package com.morrs;
 
-import com.morrs.spi.adapters.postgres_jdbc.CreateUserJdbcTemplateAdapter;
-import com.morrs.spi.adapters.postgres_jdbc.DeleteUserByIdJdbcTemplateAdapter;
-import com.morrs.spi.adapters.postgres_jdbc.FindUserByIdJdbcTemplateAdapter;
-import com.morrs.spi.adapters.postgres_jdbc.UpdateUserInfoJdbcTemplateAdapter;
-import com.morrs.usecase.CreateUserUseCase;
-import com.morrs.usecase.DeleteUserByIdUseCase;
-import com.morrs.usecase.FindUserByIdUseCase;
-import com.morrs.usecase.UpdateUserUseCase;
+import com.morrs.spi.adapters.postgres_jdbc.*;
+import com.morrs.usecase.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -42,5 +36,10 @@ public class VeloxaUserMicroserviceApplication {
                 new DeleteUserByIdJdbcTemplateAdapter(jdbcTemplate),
                 new FindUserByIdJdbcTemplateAdapter(jdbcTemplate)
         );
+    }
+
+    @Bean
+    public FindAllUsersUseCase findAllUsersUseCase(JdbcTemplate jdbcTemplate) {
+        return new FindAllUsersUseCase(new FindAllUsersJdbcTemplateAdapter(jdbcTemplate));
     }
 }
