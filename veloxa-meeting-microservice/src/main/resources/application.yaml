@@ -1,1 +1,12 @@
-spring.application.name=veloxa-meeting-microservice
+server:
+  port: 8082
+spring:
+  config:
+    import: "file:.env[.properties]"
+  application:
+    name: veloxa-meeting-microservice
+  datasource:
+    url: ${DATABASE_FOR_APPLICATION_NOT_IN_DOCKER_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
