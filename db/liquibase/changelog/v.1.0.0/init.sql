@@ -50,7 +50,7 @@ CREATE TABLE tasks
 
 CREATE TABLE meetings_users
 (
-    meetings_id UUID REFERENCES users (id) ON DELETE CASCADE,
+    meetings_id UUID REFERENCES meetings (id) ON DELETE CASCADE,
     users_id    UUID REFERENCES users (id) ON DELETE CASCADE,
     PRIMARY KEY (meetings_id, users_id)
 )
