@@ -1,5 +1,7 @@
 package com.morrs.veloxameetingmicroservice.controllers;
 
+import com.morrs.veloxameetingmicroservice.brokerUtils.DataSender;
+import com.morrs.veloxameetingmicroservice.dto.UsersNotification;
 import com.morrs.veloxameetingmicroservice.entity.Meeting;
 import com.morrs.veloxameetingmicroservice.entity.User;
 import com.morrs.veloxameetingmicroservice.services.MeetingService;
@@ -15,6 +17,7 @@ import java.util.UUID;
 public class MeetingController {
 
     private final MeetingService meetingService;
+    private final DataSender dataSender;
 
     @GetMapping()
     public List<Meeting> findAll() {
@@ -28,11 +31,19 @@ public class MeetingController {
 
     @PostMapping()
     public Meeting save(@RequestBody Meeting meeting) {
+        dataSender.send(new UsersNotification(
+                UUID.randomUUID(),
+                meeting.getParticipants()
+        ));
         return meetingService.save(meeting);
     }
 
     @PatchMapping("/{id}")
     public Meeting update(@RequestBody List<User> users, @PathVariable UUID id) {
+        dataSender.send(new UsersNotification(
+                UUID.randomUUID(),
+                users
+        ));
         return meetingService.update(id, users);
     }
 
