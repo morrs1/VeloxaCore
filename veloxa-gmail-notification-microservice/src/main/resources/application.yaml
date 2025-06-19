@@ -1,0 +1,25 @@
+spring:
+  config:
+    import: "file:../.env[.properties]"
+  kafka:
+    consumer:
+      group-id: orders-group
+      bootstrap-servers: localhost:9092
+      client-id: orders-consumer
+      auto-offset-reset: earliest
+
+  application:
+    name: kotlin-micro-notification
+  mail:
+    host: smtp.yandex.ru
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: smtp
+    port: 465
+
+mail:
+  debug: true
+
+application:
+  kafka:
+    topic: create-orders-topic
