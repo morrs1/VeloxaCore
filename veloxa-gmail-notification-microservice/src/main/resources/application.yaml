@@ -1,11 +1,11 @@
 spring:
   config:
-    import: "file:../.env[.properties]"
+    import: "file:./.env[.properties]"
   kafka:
     consumer:
-      group-id: orders-group
+      group-id: gmail-notifications-group
       bootstrap-servers: localhost:9092
-      client-id: orders-consumer
+      client-id: meetings-notification-service
       auto-offset-reset: earliest
 
   application:
@@ -22,4 +22,4 @@ mail:
 
 application:
   kafka:
-    topic: create-orders-topic
+    topic: users_added_at_meeting
