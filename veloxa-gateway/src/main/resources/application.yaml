@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "https://localhost:8080"
+                allowedMethods: "*"
+                allowedHeaders: "*"
+                allowCredentials: true
+                maxAge: 3600
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+
+          httpserver:
+            wiretap: true
+          httpclient:
+            wiretap: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - name: gateway-service
+        url: /v3/api-docs
+      - name: veloxa-meeting-microservice
+        url: /veloxa-meeting-microservice/v3/api-docs
+      - name: veloxa-user-microservice
+        url: /veloxa-user-microservice/v3/api-docs
+
+
+debug: true
