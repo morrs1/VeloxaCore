@@ -29,7 +29,7 @@ public class KafkaClient {
         for (UsersNotification value : values) {
             value.getUsers().forEach(user -> {
                 log.info(user.toString());
-                mailSender.send(user.getEmail(), "Новая встреча", "Вас пригласили на встречу!");
+                mailSender.send(user.getEmail(), "Новая встреча", "Вас пригласили на встречу c %s, до %s".formatted(value.getTimeStart(), value.getTimeEnd()));
             });
 
         }

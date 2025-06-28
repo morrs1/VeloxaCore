@@ -14,4 +14,6 @@ import java.util.UUID;
 public class UsersNotification {
     private UUID id;
     private List<User> users;
+    private String timeStart;
+    private String timeEnd;
 }
