@@ -13,3 +13,7 @@ spring:
 #logging:
 #  level:
 #    org.apache.coyote.http11: DEBUG
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
