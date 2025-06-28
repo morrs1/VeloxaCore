@@ -33,16 +33,21 @@ public class MeetingController {
     public Meeting save(@RequestBody Meeting meeting) {
         dataSender.send(new UsersNotification(
                 UUID.randomUUID(),
-                meeting.getParticipants()
+                meeting.getParticipants(),
+                meeting.getStartTime(),
+                meeting.getEndTime()
         ));
         return meetingService.save(meeting);
     }
 
     @PatchMapping("/{id}")
     public Meeting update(@RequestBody List<User> users, @PathVariable UUID id) {
+        var meeting = meetingService.findById(id);
         dataSender.send(new UsersNotification(
                 UUID.randomUUID(),
-                users
+                users,
+                meeting.getStartTime(),
+                meeting.getEndTime()
         ));
         return meetingService.update(id, users);
     }
