@@ -9,6 +9,6 @@ public class Role extends BaseValueObject<String> {
 
     @Override
     public void validate() {
-        //TODO
+        //TODO NotNull
     }
 }

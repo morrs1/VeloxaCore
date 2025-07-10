@@ -10,8 +10,9 @@ public class Email extends BaseValueObject<String> {
 
     @Override
     public void validate() {
-        if (!this.getValue()
-                .matches("^(?=.{1,64}@)[a-zA-Z0-9_-]+(?:\\.[a-zA-Z0-9_-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$")
+        if (this.getValue() == null ||
+                !this.getValue()
+                        .matches("^(?=.{1,64}@)[a-zA-Z0-9_-]+(?:\\.[a-zA-Z0-9_-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$")
         ) {
             throw new ValidationException("Invalid email address %s".formatted(this.getValue()));
         }

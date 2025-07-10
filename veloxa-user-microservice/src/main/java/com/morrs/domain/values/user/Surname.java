@@ -1,5 +1,6 @@
 package com.morrs.domain.values.user;
 
+import com.morrs.domain.exceptions.ValidationException;
 import com.morrs.domain.values.BaseValueObject;
 
 public class Surname extends BaseValueObject<String> {
@@ -9,6 +10,8 @@ public class Surname extends BaseValueObject<String> {
 
     @Override
     public void validate() {
-        //TODO
+        if (this.getValue() == null) {
+            throw new ValidationException("Surname must be not null");
+        }
     }
 }
