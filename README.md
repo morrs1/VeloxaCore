@@ -85,3 +85,16 @@
 - `Git Flow`
 - `Docker compose` уровня `production`
 - Хранение секретов в `.env`
+
+## Пометка(для запуска make)
+1) В PS выполнить команды
+    - ```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser```
+    - ```Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression```
+2) Перезапустить терминал и выполнить след команды
+    - ```scoop bucket add main```
+    - ```scoop install main/make```
+3) Перезапустить терминал и выполнить след команды
+   - ```scoop install main/gcc```
+4) [!IMPORTANT] При изменениях Makefile в IDEA снизу справа ОБЯЗАТЕЛЬНО поставить LF форматирование
+5) Так же в Makefile обязательны табы для отступов, в IDEA это можно настроить в:
+   - Settings -> Editor -> Code style -> Other File Types -> Use tab character ✅
