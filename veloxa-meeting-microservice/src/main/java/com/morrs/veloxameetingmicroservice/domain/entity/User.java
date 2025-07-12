@@ -4,9 +4,6 @@ import com.morrs.veloxameetingmicroservice.domain.values.user.Email;
 import com.morrs.veloxameetingmicroservice.domain.values.user.Name;
 import com.morrs.veloxameetingmicroservice.domain.values.user.Patronymic;
 import com.morrs.veloxameetingmicroservice.domain.values.user.Surname;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
