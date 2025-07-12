@@ -6,7 +6,7 @@ services:
     ports:
       - "${POSTGRES_EXTERNAL_PORT}:${POSTGRES_INNER_PORT}"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_meeting_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -34,7 +34,7 @@ services:
         condition: service_healthy
 
 volumes:
-  postgres_data:
+  postgres_meeting_data:
 
 networks:
   meeting_network:
