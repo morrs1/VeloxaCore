@@ -1,9 +1,9 @@
 package com.morrs.veloxameetingmicroservice.controllers;
 
 import com.morrs.veloxameetingmicroservice.brokerUtils.DataSender;
-import com.morrs.veloxameetingmicroservice.dto.UsersNotification;
-import com.morrs.veloxameetingmicroservice.entity.Meeting;
-import com.morrs.veloxameetingmicroservice.entity.User;
+import com.morrs.veloxameetingmicroservice.api.presentation.UsersNotification;
+import com.morrs.veloxameetingmicroservice.domain.entity.Meeting;
+import com.morrs.veloxameetingmicroservice.domain.entity.User;
 import com.morrs.veloxameetingmicroservice.services.MeetingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

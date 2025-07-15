@@ -1,7 +1,7 @@
 package com.morrs.veloxameetingmicroservice.repository;
 
-import com.morrs.veloxameetingmicroservice.entity.Meeting;
-import com.morrs.veloxameetingmicroservice.entity.User;
+import com.morrs.veloxameetingmicroservice.domain.entity.Meeting;
+import com.morrs.veloxameetingmicroservice.domain.entity.User;
 import com.morrs.veloxameetingmicroservice.exceptions.DuplicateKeyException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;

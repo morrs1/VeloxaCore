@@ -1,6 +1,6 @@
 package com.morrs.veloxameetingmicroservice.brokerUtils;
 
-import com.morrs.veloxameetingmicroservice.dto.UsersNotification;
+import com.morrs.veloxameetingmicroservice.api.presentation.UsersNotification;
 
 public interface DataSender {
 

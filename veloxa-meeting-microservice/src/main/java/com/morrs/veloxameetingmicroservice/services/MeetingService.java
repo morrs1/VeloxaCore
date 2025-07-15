@@ -1,7 +1,7 @@
 package com.morrs.veloxameetingmicroservice.services;
 
-import com.morrs.veloxameetingmicroservice.entity.Meeting;
-import com.morrs.veloxameetingmicroservice.entity.User;
+import com.morrs.veloxameetingmicroservice.domain.entity.Meeting;
+import com.morrs.veloxameetingmicroservice.domain.entity.User;
 import com.morrs.veloxameetingmicroservice.exceptions.MeetingNotFoundException;
 import com.morrs.veloxameetingmicroservice.repository.MeetingRepository;
 import lombok.RequiredArgsConstructor;

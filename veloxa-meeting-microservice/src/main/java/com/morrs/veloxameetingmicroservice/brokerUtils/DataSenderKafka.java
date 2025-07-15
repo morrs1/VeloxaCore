@@ -1,6 +1,6 @@
 package com.morrs.veloxameetingmicroservice.brokerUtils;
 
-import com.morrs.veloxameetingmicroservice.dto.UsersNotification;
+import com.morrs.veloxameetingmicroservice.api.presentation.UsersNotification;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;

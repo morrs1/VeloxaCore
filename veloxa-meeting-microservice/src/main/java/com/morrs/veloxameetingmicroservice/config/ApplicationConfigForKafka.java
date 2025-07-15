@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.morrs.veloxameetingmicroservice.brokerUtils.DataSender;
 import com.morrs.veloxameetingmicroservice.brokerUtils.DataSenderKafka;
-import com.morrs.veloxameetingmicroservice.dto.UsersNotification;
+import com.morrs.veloxameetingmicroservice.api.presentation.UsersNotification;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
